@@ -1,0 +1,86 @@
+<div class="container">
+  <h1>{{title}}</h1>
+  <p>Welcome to {{title}}</p>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal">Cadastro Modal</button>
+
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Sobrenome</th>
+        <th scope="col">Apelido</th>
+        <th scope="col">#</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each nav}}
+      <tr>
+        <th scope="row">{{id}}</th>
+        <td>{{nome}}</td>
+        <td>{{sobreme}}</td>
+        <td>{{apelido}}</td>
+      </tr>
+      {{~/each}}
+
+<!--
+
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>twitter</td>
+      </tr> -->
+    </tbody>
+  </table>
+</div>
+
+<!-- modal -->
+<div class="modal fade bd-example-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">FCadastro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body " >
+
+        <form class="form-horizontal ">
+            <!-- Text input-->
+            <div class="form-group">
+              <label for="nome">Nome</label>
+                <input id="nome" name="nome" type="text" placeholder="Ex: Pedro" class="form-control " required="">
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label for="sobrenome">Sobrenome</label>
+                <input id="sobrenome" name="sobrenome" type="text" placeholder="Ex: Sousa" class="form-control " required="">
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label  for="apelido">Apelido</label>
+                <input id="apelido" name="apelido" type="text" placeholder="Ex: pedrinho" class="form-control" required="">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Salvar mudanças</button>
+      </div>
+    </div>
+  </div>
+</div>
