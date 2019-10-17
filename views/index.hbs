@@ -1,7 +1,7 @@
 <div class="container">
   <h1>{{title}}</h1>
   <p>Welcome to {{title}}</p>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal">Cadastro Modal</button>
+  <button type="button" class="btn btn-primary" onclick="modal('modal1', 'cadastrar', 0);">Cadastro Modal</button>
 
 
   <table class="table table-hover">
@@ -21,6 +21,7 @@
         <td>{{nome}}</td>
         <td>{{sobreme}}</td>
         <td>{{apelido}}</td>
+        <td><button type="button" class="btn btn-warning"  onclick="modal('modal1', 'editar', {{id}});">Editar</button><button type="button" class="btn btn-danger">Deletar</button></td>
       </tr>
       {{~/each}}
 
@@ -48,11 +49,11 @@
 </div>
 
 <!-- modal -->
-<div class="modal fade bd-example-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal" id="minhaModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">FCadastro</h5>
+        <h5 class="modal-title" id="textCadastro">FCadastro</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -84,3 +85,25 @@
     </div>
   </div>
 </div>
+<script>
+  function modal(modal, operacao, valor){
+    if(modal=="modal1"){
+      if(operacao=='cadastrar'){
+        document.getElementById('textCadastro').innerText ="Cadastrar nova Pessoa";
+        $('#minhaModal').modal('toggle')
+        document.getElementById('nome').value="";
+        document.getElementById('sobrenome').value="";
+        document.getElementById('apelido').value="";
+      }
+      if(operacao=='editar'){
+        document.getElementById('textCadastro').innerText ="Editar #"+valor;
+        $('#minhaModal').modal('toggle');
+        document.getElementById('nome').value="Editar";
+        document.getElementById('sobrenome').value="Editar";
+        document.getElementById('apelido').value="Editar";
+
+
+      }
+    }
+  }
+</script>
